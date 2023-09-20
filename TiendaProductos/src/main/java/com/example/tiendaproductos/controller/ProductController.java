@@ -26,6 +26,6 @@ public class ProductController {
     }
 
     @GetMapping("/get-by-id")
-    public Optional<Product> getById(String id){ return  productService.getById(id);}
+    public Optional<Product> getById(@RequestParam String id){ return  productService.getById(id);}
 
 }

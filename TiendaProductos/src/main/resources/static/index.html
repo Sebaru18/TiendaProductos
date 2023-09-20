@@ -1,26 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Lectura de Codigo QR</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.css">
 </head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <body>
-
-<h1> Cata Despierta!!</h1>
-<div>
-    <input placeholder="Nombre" id="product-name">
-    <input placeholder="Description" id="product-desc">
-    <input placeholder="Precio" id="product-price">
-    <br>
-    <button onclick="saveProduct()">Guardar!</button>
-</div>
-<div id="resultados">
+<h2>Selecciona una opcion:</h2>
+<label for="id">id:</label>
+<input type="text" id="id" name="id">
+<button id="cargarInfo">Cargar Informacion</button>
+<p id="infoMostrada"></p>
 
 
-</div>
+<h2>Guardar Producto</h2>
+<br>
+<label for="nombre">Nombre:</label>
+<input type="text" id="nombre" name="nombre"><br>
 
+<label for="precio">Precio:</label>
+<input type="text" id="precio" name="precio"><br>
+
+<label for="descripcion">Descripcion:</label>
+<textarea id="descripcion" name="descripcion"></textarea><br>
+
+<button id="cargarTodo">Cargar Todo</button>
+<button id="guardarInfo">Guardar Producto</button>
+
+<script src="js/carga.js"></script>
+
+<button id="camaraBtn">Capturar desde la Camara</button>
+<button id="archivoBtn">Leer desde Archivo</button>
+<button id="seleccionarZonaBtn">Seleccionar Zona</button>
+
+<!-- Contenedor para mostrar la vista de la camara -->
+<video id="preview"></video>
+
+<!-- Elemento para mostrar el resultado (debe ser un <img> o <canvas>) -->
+<img id="resultado" style="display: none;"> <!-- Aquí se muestra el recorte -->
+
+<!-- Elemento para mostrar la vista de recorte -->
+<div id="vistaRecorte"></div>
+
+<!-- Incluir las bibliotecas instascan, qrcode-decoder, html2canvas y cropperjs -->
+<script type="text/javascript" src="js/instascan.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.0.1/html5-qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.js"></script>
+
+
+
+<script>
+
+        // Elementos y variables
+        const camaraBtn = document.getElementById('camaraBtn');
+        const archivoBtn = document.getElementById('archivoBtn');
+        const seleccionarZonaBtn = document.getElementById('seleccionarZonaBtn');
+
+        const resultado = document.getElementById('resultado');
+        const vistaRecorte = document.getElementById('vistaRecorte');
+
+        let scanner;
+        let cropper;
+
+        // Funcion para iniciar el recorte
+        function iniciarRecorte() {
+            if (cropper) {
+                cropper.destroy();
+            }
+            cropper = new Cropper(resultado, {
+                aspectRatio: NaN, // Permitir cualquier relacion de aspecto
+                crop: function(event) {
+                    // Puedes acceder a las coordenadas del area seleccionada aqui
+                    console.log(event.detail.x, event.detail.y, event.detail.width, event.detail.height);
+                }
+            });
+        }
+
+        // Funcion para tomar una captura de pantalla de la zona seleccionada
+        function tomarCaptura() {
+            html2canvas(resultado, {
+                x: cropper.getData().x,
+                y: cropper.getData().y,
+                width: cropper.getData().width,
+                height: cropper.getData().height
+            }).then(function(canvas) {
+                // Agregar la captura al contenedor de la vista de recorte
+                vistaRecorte.innerHTML = '';
+                vistaRecorte.appendChild(canvas);
+            });
+        }
+
+        // Funcion para capturar desde la camara
+        function capturarDesdeCamara() {
+         scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+      scanner.addListener('scan', function (content) {
+        console.log(content);
+      });
+      Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 0) {
+          scanner.start(cameras[0]);
+        } else {
+          console.error('No cameras found.');
+        }
+      }).catch(function (e) {
+        console.error(e);
+      });
+      }
+
+        // Funcion para leer desde archivo
+        function leerDesdeArchivo() {
+            resultado.textContent = 'Selecciona un archivo QR para leer...';
+            vistaRecorte.innerHTML = '';
+        }
+
+        // Eventos para los botones
+        camaraBtn.addEventListener('click', function() {
+            capturarDesdeCamara();
+        });
+
+        archivoBtn.addEventListener('click', function() {
+            leerDesdeArchivo();
+        });
+
+        seleccionarZonaBtn.addEventListener('click', function() {
+            iniciarRecorte();
+        });
+
+        // Iniciar captura desde la camara
+        scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+        scanner.addListener('scan', function (content) {
+            resultado.textContent = content;
+        });
+
+        // Inicialmente, muestra la captura desde la camara
+        capturarDesdeCamara();
+    </script>
 </body>
-<script type="application/javascript" src="js/myScript.js"></script>
-
 </html>
