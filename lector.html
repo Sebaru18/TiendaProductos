@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leer QR desde Imagen</title>
+</head>
+<body>
+    <input type="file" id="fileInput">
+    <button onclick="leerQR()">Leer QR</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.0.1/jsQR.js"></script>
+    <script>
+        function leerQR() {
+            var fileInput = document.getElementById('fileInput');
+            var file = fileInput.files[0];
+
+            var reader = new FileReader();
+
+            reader.onload = function(event) {
+                var image = new Image();
+                image.src = event.target.result;
+
+                image.onload = function() {
+                    var canvas = document.createElement('canvas');
+                    var context = canvas.getContext('2d');
+                    canvas.width = image.width;
+                    canvas.height = image.height;
+                    context.drawImage(image, 0, 0);
+
+                    var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+                    var code = jsQR(imageData.data, imageData.width, imageData.height);
+
+                    if (code) {
+                        var id = code.data;
+                        enviarIDAlBackend(id);
+                    } else {
+                        alert('No se pudo leer el QR.');
+                    }
+                }
+            }
+
+            reader.readAsDataURL(file);
+        }
+
+        function enviarIDAlBackend(id) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    alert('ID enviado al backend exitosamente');
+                }
+            };
+            xhttp.open('POST', 'url_del_backend', true);
+            xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhttp.send('id=' + id);
+        }
+    </script>
+</body>
+</html>
