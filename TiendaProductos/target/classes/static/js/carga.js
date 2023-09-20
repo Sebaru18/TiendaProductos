@@ -38,7 +38,17 @@ document.addEventListener("DOMContentLoaded", function() {
              type: "GET",
              url: "/api/product/get-by-id", // URL del método
              data: { "id": id }, // Envía el valor del campo de texto como parámetro
+             datatype: 'json',
              success: function (response) {
+             var id = response.id;
+             var nombre = response.nombre;
+             var precio = response.precio;
+             var descr = response.descripcion
+
+             $("#Eid").val(id);
+             $("#EnombreProducto").val(nombre);
+             $("#EprecioProducto").val(precio);
+             $("#Edescripcion").val(descr)
                 console.log("Sep, encontré algo")
                 console.log(response.nombre)
 

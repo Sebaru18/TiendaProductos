@@ -18,8 +18,12 @@ public class ProductRepository {
         return (List<Product>) productCrudRepository.findAll();
     }
 
-    public Optional<Product> getById(String id ){ return productCrudRepository.findById(Integer.parseInt(id));}
+    public Optional<Product> getById(String id ){
+        try{ System.out.println(productCrudRepository.findById(Integer.parseInt(id)));}
+        catch(Exception e){return null;}
+        return productCrudRepository.findById(Integer.parseInt(id));}
     public Product save(Product p){
+        System.out.println(p);
         return productCrudRepository.save(p);
     }
 

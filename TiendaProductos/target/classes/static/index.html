@@ -12,6 +12,21 @@
 <input type="text" id="id" name="id">
 <button id="cargarInfo">Cargar Informacion</button>
 
+<h2>Producto buscado</h2>
+<br>
+<label for="Eid">ID: </label>
+<input type="text" id="Eid", name="Eid" ><br>
+
+<label for="EnombreProducto">Nombre:</label>
+<input type="text" id="EnombreProducto" name="EnombreProducto"><br>
+
+<label for="EprecioProducto">Precio:</label>
+<input type="text" id="EprecioProducto" name="EprecioProducto"><br>
+
+<label for="Edescripcion">Descripcion:</label>
+<input type="text" id="Edescripcion" name="Edescripcion"><br>
+
+
 <p id="infoMostrada"></p>
 
 
@@ -32,20 +47,23 @@
 
 
 <script src="js/carga.js"></script>
-
+<div>
 <button id="camaraBtn">Capturar desde la Camara</button>
 <button id="archivoBtn">Leer desde Archivo</button>
 <button id="seleccionarZonaBtn">Seleccionar Zona</button>
+</div>
 
+
+<div>
 <!-- Contenedor para mostrar la vista de la camara -->
-<video id="preview"></video>
+<video id="preview">Zona</video>
 
 <!-- Elemento para mostrar el resultado (debe ser un <img> o <canvas>) -->
 <img id="resultado" style="display: none;"> <!-- Aquí se muestra el recorte -->
 
 <!-- Elemento para mostrar la vista de recorte -->
 <div id="vistaRecorte"></div>
-
+</div>
 <!-- Incluir las bibliotecas instascan, qrcode-decoder, html2canvas y cropperjs -->
 <script type="text/javascript" src="js/instascan.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.0.1/html5-qrcode.min.js"></script>
