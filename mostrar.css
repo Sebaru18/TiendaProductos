@@ -1,0 +1,247 @@
+.sc{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.sec_sup{
+    font-family: Times, sans-serif;
+    background-color: #1c588e;
+    height: 45px;
+    width: 100%;
+    color: white;
+    text-align: left;
+    font-size: 17px;
+    position: relative;
+    top: 80px;
+    left: 0px;
+}
+.titulo{
+      font-family: Times, sans-serif;
+    height: 40px;
+    width: 98%;
+    color: white;
+    text-align: left;
+    font-size: 17px;
+    position: relative;
+    top: 5px;
+    left: 399px;
+    
+}
+.header {
+    background-color: #3088c6; /*fondo azul */
+    color: #fff; /* Color del texto */
+    text-align: center;
+    padding: 20px 0; /* Espaciado arriba y abajo */
+}
+
+.centro{
+    top: 300px;
+    position: relative;
+    left: -300px;
+    
+}
+.cantidad{
+    font-family: Times, sans-serif;
+    width: 0.60px;
+    color: black;
+    text-align: left;
+    font-size: 16px;
+    position: relative;
+    top: -70px;
+    padding-left: 103%;
+    border-width: 1px;
+}
+.cajonCantidad{
+    left: 303%;
+    top: 130px;
+    width: 50px; /* Ancho deseado en píxeles */
+    height: 20px; /* Alto deseado en píxeles */
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+}
+.inputC{
+    left: 303%;
+    top: 130px;
+    width: 50px; /* Ancho deseado en píxeles */
+    height: 20px; /* Alto deseado en píxeles */
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    
+}
+.pppc1{
+    font-family: Times, sans-serif;
+    width: 0.60px;
+    color: black;
+    text-align: left;
+    font-size: 16px;
+    position: relative;
+    top: -180px;
+    padding-left: 38%;
+    border-width: 1px;
+}
+.cajon {
+    top:60%;
+    width: 190px; /* Ancho deseado en píxeles */
+    height: 20px; /* Alto deseado en píxeles */
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+}
+.sony{
+    font-family: Times, sans-serif;
+    width: 0.01px;
+    color: black;
+    text-align: left;
+    font-size: 11px;
+    position: relative;
+    top: -200px;
+    padding-left: 40%;
+    border-width: 1px;
+}
+.pppc3{
+    font-family: Times, sans-serif;
+    width: 0.60px;
+    color: black;
+    text-align: left;
+    font-size: 16px;
+    position: relative;
+    top: -170px;
+    padding-left: 38%;
+    border-width: 1px;
+}
+.cajon2 {
+    top:60%;
+    width: 190px; /* Ancho deseado en píxeles */
+    height: 20px; /* Alto deseado en píxeles */
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+}
+.pppc4{
+    font-family: Times, sans-serif;
+    width: 196px;
+    color: #8e9193;
+    text-align: left;
+    font-size: 11px;
+    position: relative;
+    top: -20px;
+    padding-left: 15px;
+    border-width: 1px;
+}
+.pppc5{
+    font-family: Times, sans-serif;
+    width: 0.60px;
+    color: black;
+    text-align: left;
+    font-size: 16px;
+    position: relative;
+    top: -160px;
+    padding-left: 38%;
+    border-width: 1px;
+}
+.cajon3 {
+    top:65%;
+    width: 190px; /* Ancho deseado en píxeles */
+    height: 20px; /* Alto deseado en píxeles */
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+}
+.pppc6{
+    font-family: Times, sans-serif;
+    width: 60px;
+    color: #8e9193;
+    text-align: left;
+    font-size: 11px;
+    position: relative;
+    top: -180px;
+    padding-left: 40%;
+    border-width: 1px;
+}
+.pppc7{
+    font-family: Times, sans-serif;
+    width: 0.60px;
+    color: black;
+    text-align: left;
+    font-size: 16px;
+    position: relative;
+    top: -160px;
+    padding-left: 38%;
+    border-width: 1px;
+}
+.cajon4 {
+    top:-1000%;
+    width: 190px; /* Ancho deseado en píxeles */
+    height: 20px; /* Alto deseado en píxeles */
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+}
+.pppc8{
+    font-family: Times, sans-serif;
+    width: 95px;
+    color: #8e9193;
+    text-align: left;
+    font-size: 11px;
+    position: relative;
+    top: 120px;
+    padding-left: 10%;
+    border-width: 1px;
+}
+.mostrar{
+    font-family: Times, sans-serif;
+    width: 120px;
+    color: black;
+    text-align: left;
+    font-size: 16px;
+    position: relative;
+    top: -190px;
+    padding-left: 43%;
+    border-width: 1px;
+}
+.mas{
+    width: 0.60px;
+    color: black;
+    text-align: left;
+    font-size: 16px;
+    position: relative;
+    top: -120px;
+    padding-left: 70%;
+    border-width: 1px;
+    
+}
+.menos{
+    width: 0.60px;
+    color: black;
+    text-align: left;
+    font-size: 16px;
+    position: relative;
+    top: -142px;
+    padding-left: 80%;
+    border-width: 1px;
+    
+}
+.imagenFoto{
+    top:278px;
+    position: absolute;
+    width:38%;
+    height:40%;
+    left: 30%;
+    background-color:white;
+    background-size: cover;
+    background-image:url('https://www.tuexperto.com/wp-content/uploads/2019/10/lanzamiento-sony-alpha-9-ii-01.jpg');
+}
+.btn:hover{
+    background-color:#c1beb6;
+    cursor: pointer;
+}
